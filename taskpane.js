@@ -16,3 +16,8 @@ async function tryInsertText() {
         console.error(error);
     }
 }
+Office.onReady((info) => {
+    if (info.host === Office.HostType.Word) {
+        console.log("Word API バージョン: ", Office.context.requirements.isSetSupported('WordApi', '1.3'));
+    }
+});

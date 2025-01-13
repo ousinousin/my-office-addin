@@ -1,25 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" 
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" 
+           xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" 
            xsi:type="TaskPaneApp">
-    <Id>12345678-1234-1234-1234-123456789abc</Id>
-    <Version>1.0.0.0</Version>
-    <ProviderName>Your Name</ProviderName>
-    <DefaultLocale>en-US</DefaultLocale>
-    <DisplayName DefaultValue="Sample Excel Add-in"/>
-    <Description DefaultValue="This is a sample Excel Add-in."/>
-    <IconUrl DefaultValue="https://example.com/assets/icon.png"/>
-    <SupportUrl DefaultValue="https://example.com/support"/>
-
-    <AppDomains>
-        <AppDomain>https://example.com</AppDomain>
-    </AppDomains>
-
+  <Id>23a42ae6-08ba-433e-acfb-0c7f16f62a3c</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Your Name or Company</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="My Word Add-in"/>
+  <Description DefaultValue="This is a sample Word Add-in hosted on GitHub Pages."/>
+  <IconUrl DefaultValue="https://ousinousin.github.io/my-office-addin/icon.png"/>
+  <SupportUrl DefaultValue="https://ousinousin.github.io/my-office-addin/"/>
+  <AppDomains>
+    <AppDomain>https://ousinousin.github.io</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Document"/>
+  </Hosts>
+  <Requirements>
+    <Sets DefaultMinVersion="1.1">
+      <Set Name="SharedRuntime"/>
+    </Sets>
+  </Requirements>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://ousinousin.github.io/my-office-addin/taskpane.html"/>
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <VersionOverrides Version="1.1" xsi:type="VersionOverridesV1_0">
     <Hosts>
-        <Host Name="Workbook"/>
+      <Host xsi:type="Document">
+        <DesktopFormFactor>
+          <GetStarted>
+            <Title>Get started with your Word add-in</Title>
+            <Description>Sample Word add-in hosted on GitHub Pages.</Description>
+            <LearnMoreUrl>https://ousinousin.github.io/my-office-addin/</LearnMoreUrl>
+          </GetStarted>
+          <ExtensionPoint xsi:type="MessageReadCommandSurface">
+            <SourceLocation DefaultValue="https://ousinousin.github.io/my-office-addin/taskpane.html"/>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
     </Hosts>
-
-    <DefaultSettings>
-        <SourceLocation DefaultValue="https://example.com/taskpane.html"/>
-    </DefaultSettings>
+    <Icons>
+      <Icon Size="16" DefaultValue="https://ousinousin.github.io/my-office-addin/icon.png"/>
+      <Icon Size="32" DefaultValue="https://ousinousin.github.io/my-office-addin/icon.png"/>
+      <Icon Size="80" DefaultValue="https://ousinousin.github.io/my-office-addin/icon.png"/>
+    </Icons>
+    <Requirements>
+      <bt:Sets DefaultMinVersion="1.1">
+        <bt:Set Name="SharedRuntime"/>
+      </bt:Sets>
+    </Requirements>
+  </VersionOverrides>
 </OfficeApp>
